@@ -1,5 +1,6 @@
 # Actividad Biblioteca
 
+> 18/05/23 <
 Puntos que faltan completar sobre la actividad
 1) Enviar los datos del formulario (form.html) al archivo JSON (books_database.json)
 2) Mostrar en el menu principal de la pagina (menu.html) la lista de libros del JSON + los libros que se añadieron desde el formulario (form.html)
