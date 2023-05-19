@@ -1,0 +1,187 @@
+<div class="tabla-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody class="datos"></tbody>
+        </table>
+    </div>
+
+<!-- LIBRO 1 -->
+                <article class="book__box">
+                    <img class="img" src="booksFrontPage/sbr.jpg" alt="sbr">
+                    <section>
+                        <div class="title">Steel Ball Run</div>
+                        <div class="description">"Ficha en Anime News Network Steel Ball Run es la primera parte del reinicio y séptima historia de la serie de manga japonesa JoJo's Bizarre Adventure, escrita e ilustrada por Hirohiko Araki."</div>
+                        <div class="book__info">Autor: Hirohiko Araki<br>Publicado en el año: 2004<br>Genero: Manga</div>
+                    </section>
+                </article>
+        <!-- LIBRO 2 -->
+                <article class="book__box">
+                    <img class="img" src="booksFrontPage/vls.jpg" alt="20l">
+                    <section>
+                        <div class="title">Veinte mil leguas de viaje submarino</div>
+                        <div class="description">"Un supuesto monstruo marino ha disparado todas las alarmas en la sociedad de la época. Para capturarlo, se organiza una expedición a bordo de la fragata estadounidense Abraham Lincoln."</div>
+                        <div class="book__info">Autor: Julio Verne<br>Publicado en el año: 1869<br>Género: Novela</div>
+                    </section>
+                </article>
+        <!-- LIBRO 3 -->
+                <article class="book__box">
+                    <img class="img" src="booksFrontPage/ljh.jpg" alt="jhs">
+                    <section>
+                        <div class="title">Los juegos del hambre: Sinsajo</div>
+                        <div class="description">"Continúa con la historia de Katniss Everdeen, donde se compromete a liderar la rebelión convirtiéndose en el «Sinsajo», y luchar contra el Capitolio en el país futurista de Panem."</div>
+                        <div class="book__info">Autor: Suzanne Collins<br>Publicado en el año: 2008<br>Género: Sci-fi</div>
+                    </section>
+                </article>
+        <!-- LIBRO 4 -->
+                <article class="book__box">
+                    <img class="img" src="booksFrontPage/euh.jpg" alt="uho">
+                    <section>
+                        <div class="title">El último héroe del Olimpo</div>
+                        <div class="description">"Es la quinta y última novela de la serie Percy Jackson y los dioses del Olimpo y sirve como la secuela directa de La batalla del laberinto."</div>
+                        <div class="book__info">Autor: Rick Riordan<br>Publicado en el año: 2009<br>Género: Mitología Griega</div>
+                    </section>
+                </article>
+        <!-- LIBRO 5 -->
+                <article class="book__box">
+                    <img class="img" src="booksFrontPage/tmr.jpg" alt="tmr">
+                    <section>
+                        <div class="title">The Maze Runner</div>
+                        <div class="description">"Al despertar dentro de un oscuro elevador en movimiento, lo único que Thomas logra recordar es su nombre. No sabe quién es. Tampoco hacia dónde va. Pero no está solo: cuando la caja llega a su destino, las puertas se abren y se ve rodeado por un grupo de jóvenes."</div>
+                        <div class="book__info">Autor: James Dashner<br>Publicado en el año: 2009<br>Género: Ficción para jovenes adultos</div>
+                    </section>
+                </article>
+
+
+
+CSS
+
+.tabla-container {
+    position: relative;
+    top: 2px;
+}
+
+table {
+    margin: auto;
+    box-shadow: 8px 8px 25px #02020283;
+    text-align: center;
+    width: 35%;
+    border-collapse: collapse;
+    position: absolute;
+    top: 100%;
+    left: 600px;
+}
+
+th {
+    background-color: #0142a39a;
+    color: #fdde00fc;
+}
+
+th, td {
+    padding: 8px;
+}
+
+td {
+    background-color: #bbbbbb8c;
+}
+
+tr:nth-child(even) {
+    background-color: #ffffffc9;
+}
+
+tr:hover {
+    font-weight: 500;
+}
+
+.ocultar {
+    display: none;
+}
+
+
+
+
+.books_list {
+    margin-left: 25%;
+    margin-top: 20%;
+    display: grid;
+    grid-template-columns: 60%;
+    gap: 5px;
+}
+
+.books_list div {
+    padding: 1em;
+    border: 1px solid transparent;
+}
+
+.book__box {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.title {
+    background-color: #0142a39a;
+    color: #fdde00fc;
+}
+
+.description {
+    background-color: rgba(255, 255, 255, 0.788);
+}
+
+.book__info{
+    background-color: rgba(31, 31, 31, 0.877);
+    color: #ffffff;
+}
+
+
+
+
+
+JAVASCRIPT
+
+const inputBuscar = document.getElementById('buscar');
+const celdas = document.querySelectorAll('td');
+const titulos = document.querySelectorAll('.book__box .title');
+const datosContainer = document.querySelector('.datos');
+
+const uri = 'books_database.json';
+fetch(uri)
+    .then(response => response.json())
+    .then(json => mostrarDatos(json))
+    .catch(error => console.log(error));
+
+const mostrarDatos = (data) => {
+    let body = '';
+    data.forEach(item => {
+        body += `<tr><td>${item.title}</td></tr>`;
+    });
+    datosContainer.innerHTML = body;
+};
+
+inputBuscar.addEventListener('keyup', (e) => {
+    const texto = e.target.value.toLowerCase();
+    celdas.forEach(celda => {
+        const valor = celda.innerText.toLowerCase();
+        if (valor.includes(texto)) {
+            celda.classList.remove("ocultar");
+        } else {
+            celda.classList.add("ocultar");
+        }
+    });
+
+    titulos.forEach(titulo => {
+        const tituloTexto = titulo.innerText.toLowerCase();
+        if (tituloTexto.includes(texto)) {
+            titulo.parentElement.parentElement.style.display = "block";
+        } else {
+            titulo.parentElement.parentElement.style.display = "none";
+        }
+    });
+});

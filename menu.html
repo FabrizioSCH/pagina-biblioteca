@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu_styles.css">
+    <title>Biblioteca Baleares Group</title>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="menu.html">Biblioteca Baleares Group</a></div>
+            <input id="buscar" type="text" placeholder="Buscar...">
+            <div class="addBookBtn"><a href="form.html">Agregar Libro</a></div>
+        </div>
+    </header>
+
+    <div class="books__table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Writer</th>
+                    <th>Gender</th>
+                    <th>Published</th>
+                </tr>
+    
+            </thead>
+            
+            <tbody id="data-output">
+                <!-- Libros cargados desde menu_app.js-->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="menu_app.js"></script>
+</body>
+</html>

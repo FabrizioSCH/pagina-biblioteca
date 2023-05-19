@@ -1,0 +1,93 @@
+/* BACKGROUND */ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cascadia Code', monospace;
+}
+
+body {
+    height: 100vh;
+    background: #000 url('https://img.freepik.com/fotos-premium/vista-frontal-elegante-biblioteca-escaleras_360032-1282.jpg?w=2000') center/cover;
+}
+
+/* SEARCHBAR */
+input {
+    display: block;
+    margin: 10px auto;
+    width: 35%;
+    padding: 15px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: medium;
+    background-color: rgba(255, 255, 255, 0.808);
+}
+
+
+/* LOGO & NAVBAR TEXT */
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #fdde00fc;
+}
+
+header {
+    position: relative;
+    padding: 0 2rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo, .addBookBtn{
+    flex: 1;
+    text-align: center;
+    background: rgb(43, 42, 42);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+#buscar {
+    flex: 2;
+    margin: 0 10px;
+}
+
+/* TABLE LIST BOOKS */ 
+
+table{
+	width:  1000px;
+	margin: 250px auto;
+}
+
+table th{
+	padding: 10px 0;
+	background-color: #474747f8;
+	color: yellow;
+	border:  thin solid #ffffff;
+}
+
+table td{
+	padding: 20px;
+	border:  thin solid #d4d4d4;
+	width: 18%;
+	text-align: center;
+	background-color: #bdbdbd;
+}
+
+table td.total-price{
+	font-weight: bold;
+	font-size: 22px;
+}
+
+table img{
+	width: 100%;
+}
