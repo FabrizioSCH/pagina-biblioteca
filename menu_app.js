@@ -8,7 +8,7 @@ fetch("books_database.json")
     for(let books of books_database){
         out += `
             <tr>
-                <td> <img class="imgage" src="${books.image}" alt="" srcset=""></td>
+                <td> <img class="image" src="${books.image}" alt="" srcset=""></td>
                 <td>${books.title}</td>
                 <td>${books.writer}</td>
                 <td>${books.gender}</td>
